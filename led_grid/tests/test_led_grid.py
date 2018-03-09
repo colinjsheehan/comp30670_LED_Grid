@@ -13,13 +13,13 @@ from led_grid import main
 def test_read_file():
     ifile = "./data/input_assign3.txt"
     buffer = main.read_file(ifile)
-    assert buffer == "10\nturn off 2,4 through 6,9"
+    assert buffer == "10\nturn on 2,4 through 6,9"
     arraySize=int(buffer.split("\n")[0])
     for line in buffer.split("\n")[1:]:
         cmd, x1, y1, x2, y2 = main.get_cmd(line,arraySize)
-    
+
     assert arraySize == 10
-    assert cmd == 'turn off'
+    assert cmd == 'turn on'
     assert x1 == 2
     assert y1 == 4
     assert x2 == 6
