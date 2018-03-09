@@ -65,3 +65,35 @@ def get_cmd(line,L):
         return cmd, x1, y1, x2, y2
     else:
         return None, None, None, None, None
+
+
+
+def main():
+    startTime = time.time()
+    if len(sys.argv)<3:
+        print("Input should be of form 'led_checker --input file_link'")
+    else:
+        link=sys.argv[2]
+        file=read_file(link)
+        arraySize=int(file.split("\n")[0])
+        board=LED_Grid(arraySize)
+
+    for line in file.split("\n")[1:]:
+        cmd, x1, y1, x2, y2 = get_cmd(line,arraySize)
+        if cmd != None:
+            if cmd == 'switch':
+                board.switch(x1, y1, x2, y2)
+            elif cmd == "turn on":
+                board.turn_on(x1, y1, x2, y2)
+            elif cmd == 'turn off':
+                board.turn_off(x1, y1, x2, y2)
+        else:
+            pass
+
+    lit_LED=0
+    for i in range(arraySize):
+        for j in range(arraySize):
+            if board.grid[i][j]==True:
+                lit_LED+=1
+    print(lit_LED)
+    print(time.time()-startTime)
