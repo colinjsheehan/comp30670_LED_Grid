@@ -18,7 +18,7 @@ def test_read_file():
         cmd, x1, y1, x2, y2 = main.get_cmd(line,arraySize)
 
     assert arraySize == 10
-    assert cmd == 'turn off'
+    assert cmd == 'turn on'
     assert x1 == 2
     assert y1 == 4
     assert x2 == 6
