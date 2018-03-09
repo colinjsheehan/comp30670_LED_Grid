@@ -27,8 +27,11 @@ The Science Centre is installing a new display board which is constructed from L
      The lights are either on or off.
      Your job is to test the lights. We test them by sending instructions to turn on, turn off, or switch various inclusive ranges given as coordinate pairs. Each coordinate pair represents opposite corners of a rectangle, inclusive; a coordinate pair like 0,0 through 2,2 therefore refers to 9 lights in a 3x3 square. The lights all start turned off.
      For example:
+
      • "turn on 0,0 through 999,999" would turn on (or leave on) every light.
+
      • "switch 0,0 through 999,0" would toggle the first line of 1000 lights, turning off the ones that were on, and turning on the ones that were off.
+
      • "turn off 499,499 through 500,500" would turn off (or leave off) the middle four lights.
 
 * Free software: MIT license
@@ -38,7 +41,9 @@ The Science Centre is installing a new display board which is constructed from L
 Features
 --------
 
-* TODO
+*  install the software 
+*  enter the following argument into the command line: led_grid --input http://claritytrec.ucd.ie/~alawlor/comp30670/input_assign3_d.txt
+*  a local text file containing a series of commands can also be used as an input
 
 Credits
 -------
