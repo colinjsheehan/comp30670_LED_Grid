@@ -11,15 +11,17 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
-requirements = ['Click>=6.0', ]
+requirements = [ ]
 
-setup_requirements = [ ]
+setup_requirements = ['pytest-runner', ]
 
-test_requirements = [ ]
+test_requirements = ['pytest', ]
 
 setup(
-    author="Colin Sheehan",
-    author_email='colin.sheehan@outlook.ie',
+#2
+    author="Colin John Sheehan",
+#3
+    author_email='colin.sheehan@ucdconnect.ie',
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         'Intended Audience :: Developers',
@@ -32,23 +34,26 @@ setup(
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
     ],
-    description="Python Boilerplate contains all the boilerplate you need to create a Python package.",
-    entry_points={
-        'console_scripts': [
-            'cooking=cooking.cli:main',
-        ],
-    },
+#4
+    description="This program inputs the sie of a grid and a series of instructions to switch on/off 'LEDs' at various coordinates. It outputs the number of lite LEDs. ",
     install_requires=requirements,
+#5
     license="MIT license",
     long_description=readme + '\n\n' + history,
     include_package_data=True,
-    keywords='cooking',
-    name='cooking',
-    packages=find_packages(include=['cooking']),
+    keywords='led_grid',
+#1
+    name='led_grid',
+#6
+    packages=find_packages(include=['led_grid']),
+#7 ...
+    entry_points={'console_scripts': [ 'led_grid=led_grid.main:main'],},
     setup_requires=setup_requirements,
     test_suite='tests',
     tests_require=test_requirements,
-    url='https://github.com/colinjsheehan/cooking',
-    version='0',
+#8
+    url='https://github.com/colinjsheehan/led_grid',
+#9
+    version='1',
     zip_safe=False,
 )
