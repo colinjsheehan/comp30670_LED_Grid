@@ -36,6 +36,8 @@ class LED_Grid():
                     else:
                         self.grid[i][j]=True
 
+
+
 '''
     Auxilary functions
 
