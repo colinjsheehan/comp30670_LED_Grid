@@ -20,7 +20,7 @@ LED_Grid
 
 
 
-This program inputs the sie of a grid and a series of instructions to switch on/off 'LEDs' at various coordinates. It outputs the number of lite LEDs. 
+This program inputs the size of a grid and a series of instructions to switch on/off 'LEDs' at various coordinates. It outputs the number of lit LEDs. 
 
 
 * Free software: MIT license
