@@ -75,9 +75,9 @@ def main():
     if len(sys.argv)<3:
         print("Input should be of form 'led_checker --input file_link'")
     else:
-        link=sys.argv[2]
+        link=sys.argv[2] #Reading link to file from command line parameter
         file=read_file(link)
-        arraySize=int(file.split("\n")[0])
+        arraySize=int(file.split("\n")[0]) #Obtaining size of array from first line of file
         board=LED_Grid(arraySize)
 
     for line in file.split("\n")[1:]:
