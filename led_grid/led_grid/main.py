@@ -35,3 +35,33 @@ class LED_Grid():
                         self.grid[i][j]=False
                     else:
                         self.grid[i][j]=True
+
+'''
+    Auxilary functions
+
+'''
+# this function takes in the URL or text file as command line argument
+def read_file(link):
+    pattern = re.compile('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+')
+    if pattern.match(link):
+        req=urllib.request.urlopen(link)
+        buffer=req.read().decode('utf-8')
+    else:
+        buffer=open(link,'r').read()
+    return buffer
+
+
+# use regEx to split up the inputed lines into 5 variables
+def get_cmd(line,L):
+    pattern2 = re.compile(".*(turn on|turn off|switch)\s*([+-]?\d+)\s*,\s*([+-]?\d+)\s*through\s*([+-]?\d+)\s*,\s*([+-]?\d+).*")
+    regclean = pattern2.match(line)
+    if regclean != None:
+        cmd,x1,y1,x2,y2 = regclean.groups()
+        x1,y1,x2,y2 = int(x1), int(y1), int(x2), int(y2)
+        if x1<0: x1=0
+        if y1<0: y1=0
+        if x2>=L: x2=L-1
+        if y2>=L: y2=L-1
+        return cmd, x1, y1, x2, y2
+    else:
+        return None, None, None, None, None
